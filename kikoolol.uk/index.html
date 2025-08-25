@@ -1,0 +1,63 @@
+
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>KIKOOLOL.UK</title>
+<style>
+    body {
+        margin: 0;
+        background: black;
+        color: #0f0;
+        font-family: monospace;
+        overflow: hidden;
+    }
+    canvas {
+        display: block;
+    }
+    h1 {
+        position: absolute;
+        top: 40%;
+        width: 100%;
+        text-align: center;
+        font-size: 3em;
+        color: lime;
+        text-shadow: 0 0 10px #0f0, 0 0 20px #0f0;
+    }
+</style>
+</head>
+<body>
+<canvas id="matrix"></canvas>
+<h1>WELCOME TO KIKOOLOL.UK</h1>
+<script>
+    const canvas = document.getElementById('matrix');
+    const ctx = canvas.getContext('2d');
+
+    canvas.height = window.innerHeight;
+    canvas.width = window.innerWidth;
+
+    const letters = "KIKOOLOLUK".split("");
+    const fontSize = 14;
+    const columns = canvas.width / fontSize;
+    const drops = Array(Math.floor(columns)).fill(1);
+
+    function draw() {
+        ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        ctx.fillStyle = "#0F0";
+        ctx.font = fontSize + "px monospace";
+        for (let i = 0; i < drops.length; i++) {
+            const text = letters[Math.floor(Math.random() * letters.length)];
+            ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+            if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                drops[i] = 0;
+            }
+            drops[i]++;
+        }
+    }
+    setInterval(draw, 35);
+</script>
+</body>
+</html>
+    

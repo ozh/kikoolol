@@ -1,0 +1,75 @@
+<html>
+<head>
+<title>ozh ovh ozh ovh</title>
+<style>
+@keyframes circle {
+    from { transform:rotate(0deg); }
+    to { transform:rotate(360deg); }
+}
+
+@keyframes inner-circle {
+    from { transform:rotate(0deg); }
+    to { transform:rotate(-360deg); }
+}
+
+@keyframes circle2 {
+    from { transform:rotate(360deg); }
+    to { transform:rotate(0deg); }
+}
+
+@keyframes inner-circle2 {
+    from { transform:rotate(-360deg); }
+    to { transform:rotate(0deg); }
+}
+
+body {
+    background-color:#303060;
+}
+
+#container {
+    position: relative;
+    margin: auto;
+    width: 90px;
+    height: 90px;
+    z-index: 1;
+}
+
+div.move {
+    position:absolute;
+    width:100px;
+    height:100px;
+    margin: 20px auto 0;
+    color:orange;
+    font-size:100px;
+    line-height:1;
+}
+
+#ozh {
+    animation: circle 2s linear infinite;
+    animation-delay: 1s;
+    transform-origin:50% 200px;
+}
+
+#ozh div {
+    animation: inner-circle 2s linear infinite;
+    animation-delay: 1s;
+}
+
+#ovh {
+    animation: circle 2s linear infinite;
+    transform-origin:50% 200px;
+}
+
+#ovh div {
+    animation: inner-circle 2s linear infinite;
+}
+
+</style>
+</head>
+<body>
+<div id="container">
+<div class="move" id="ozh"><div>ozh</div></div>
+<div class="move" id="ovh"><div>ovh</div></div>
+</div>
+</body>
+</html>
